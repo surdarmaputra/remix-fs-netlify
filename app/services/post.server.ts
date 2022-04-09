@@ -8,6 +8,13 @@ export interface Post {
   content: string;
 }
 
+export async function getDir(): Promise<Record<string, string>> {
+  return {
+    cwd: process.cwd(),
+    postsPath,
+  }
+}
+
 
 export async function getPosts(): Promise<Post[]> {
   let files: string[];
