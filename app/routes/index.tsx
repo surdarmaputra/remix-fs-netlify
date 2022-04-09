@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async () => {
 }
 
 export default function Index() {
-  const { posts, dir } = useLoaderData<LoaderData>()
+  const { posts } = useLoaderData<LoaderData>()
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Posts</h1>
@@ -23,13 +23,6 @@ export default function Index() {
         <div key={title}>
           <div>{title}</div>
           <div>{content}</div>
-        </div>
-      ))}
-      <hr />
-      {Object.entries(dir).map(([key, value]) => (
-        <div key={key}>
-          <div>{key} : </div>
-          <div>{value}</div>
         </div>
       ))}
     </div>
