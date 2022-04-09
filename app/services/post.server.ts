@@ -28,9 +28,9 @@ export async function getPosts(): Promise<Post[]> {
   }
 
   const posts = await Promise.all(
-    files.map(async (fileName) => {
-      const fileContent = await fs.readFile(path.join(postsPath, fileName));
-      return JSON.parse(fileContent.toString());
+    files.map((fileName) => {
+      const fileContent = require(path.join(postsPath, fileName));
+      return fileContent;
     }),
   );
 
