@@ -9,9 +9,11 @@ export interface Post {
 }
 
 export async function getDir(): Promise<Record<string, string>> {
+  const cwd = process.cwd()
+  const netlifyContent = await fs.readdir(path.join(cwd, '.netlify'));
   return {
-    cwd: process.cwd(),
-    postsPath,
+    cwd,
+    netlifyContent: JSON.stringify(netlifyContent),
   }
 }
 
